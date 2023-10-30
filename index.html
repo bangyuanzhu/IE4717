@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lao~X Cinema - Home</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" type="image/jpg" href="./logo.png"/>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <img id='company_logo' src="image\logo.png" alt="Logo" width="300px">
+            </table>
+        </header>
+        <div id="nav">
+            <nav>
+                <ul class="nav">
+                    <li class="nav"><a class="active" href="index.html">Home</a></li>
+                    <li class="nav"><a href="movies.html">Movies</a></li>
+                    <li class="nav"><a href="cinema.html">Cinema</a></li>
+                    <li class="nav"><a href="cart.html">Cart</a></li>
+                    <li class="nav"><a href="login.html">Register/Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="image\1.png" style="width:60%">
+            </div>
+            
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="image\2.png" style="width:60%">
+            </div>
+            
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="image\3.png" style="width:60%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="image\3.png" style="width:60%">
+            </div>
+            
+            <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            </div>
+        </div>
+          
+        <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() 
+        {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) 
+            {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) 
+                {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++)  
+            {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 5000); // Change image every 2 seconds
+        }
+        </script>
+
+        <div class="push"></div>
+        <footer class="footer">
+           <table>
+               <tr>
+                   <td><small><b>Terms and Conditions</b></small></a></td>
+               </tr>
+               <tr>
+                   <td><small><i>We reserve the right to update this TERMS OF SERVICE from time to time as we expand our services. <br>
+                    We will post a notice on our home page to inform you that an update has been made. <br>
+                    Your use of the website or mobile application after this Policy has been updated will be deemed acceptance of the updated Policy. <br>&copy; 
+                    Lao~X Cinema</i></small>
+                       
+                    </td>
+               </tr>
+           </table>
+        </footer>
+    </div>
+
+</body>
+</html>
