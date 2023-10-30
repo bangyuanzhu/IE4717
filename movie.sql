@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `MOVIE`
   `cast` varchar(500) NOT NULL,
   `director` varchar(200) NOT NULL,
   PRIMARY KEY (`movie_id`)
-  dghj
+  
 );s
 
 INSERT INTO `MOVIE` (`movie_id`, `movie_name`, `duration`, `language`, `genre`, `distributor`, `release_date`, `synopsis`, `image_dir`, `rating`, `cast`, `director`) VALUES
