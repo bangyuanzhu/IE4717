@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS `MOVIE`
   `director` varchar(200) NOT NULL,
   PRIMARY KEY (`movie_id`)
   
-);s
+);
 
 INSERT INTO `MOVIE` (`movie_id`, `movie_name`, `duration`, `language`, `genre`, `distributor`, `release_date`, `synopsis`, `image_dir`, `rating`, `cast`, `director`) VALUES
 
