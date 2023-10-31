@@ -31,6 +31,7 @@
     $image_dir = $row['image_dir'];
     $synopsis = $row['synopsis'];
     $rating = $row['rating'];
+    $cast = $row['cast'];
     $director = $row['director'];
 
     $result->free();
@@ -43,14 +44,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lao~X Cinema - Movies</title>
+    <title>SJ Theatres - Movies</title>
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="shortcut icon" type="image/jpg" href="./logo.PNG"/>
 </head>
 <body>
     <div id="wrapper">
         <header>
-            <img id='company_logo' src="headerv2.PNG" alt="Logo" width="300px">
+            <img id='company_logo' src="image\logo.png" alt="Logo" width="150px" height="100px">
         </header>
         <div id="nav">
             <nav>
@@ -63,56 +64,6 @@
                 </ul>
             </nav>
         </div>
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h3>Check Booking</h3>
-                </div>
-                <div class="modal-body">
-                    <br>
-                    <form action="check_booking.php" method="post" style="text-align: center;"> <!--php script to check method, match detail and fetch data from db-->
-                        <label for="check_method">Method:&nbsp;</label>
-                        <select name="check_method" id="check_method">
-                            <option value="email" selected>E-mail</option>
-                            <option value="hp">Phone</option>
-                            <option value="bookid">Ref no.</option>
-                        </select>
-                        <br><br>
-                        <input type="text" name="user_detail" id="user_detail" size="25" required placeholder = "enter details here">
-                        <input type="submit" value="Check" id="user_detail_submit">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal 
-            function openModal() {
-                modal.style.display = "block";
-            }
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
         
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
@@ -139,6 +90,8 @@
                             <h3>Details</h3>
                             <table class="individual_mov">
                                 <tr>
+                                    <td rowspan="2" class="label">Cast: </td>
+                                    <td rowspan="2" class="detail"><?php echo $cast ?></td>
                                     <td class="label">Release:</td>
                                     <td class="detail"><?php echo $release_date ?></td>
                                 </tr>
