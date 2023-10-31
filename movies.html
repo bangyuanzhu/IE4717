@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lao~X Cinema - Movies</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" type="image/jpg" href="./logo.PNG"/>
+</head>
+<body>
+    <div id="wrapper">
+
+        <header>
+            <img id='company_logo' src="image\logo.png" alt="Logo" width="150px" height="100px">
+        </header>
+
+        <div id="nav">
+            <nav>
+                <ul class="nav">
+                    <li class="nav"><a href="index.html">Home</a></li>
+                    <li class="nav"><a class="active" href="movies.html">Movies</a></li>
+                    <li class="nav"><a href="cinema.html">Cinema</a></li>
+                    <li class="nav"><a href="cart.html">Cart</a></li>
+                    <li class="nav"><a href="login.html">Register/Login</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Movies</li>
+        </ul>
+
+        <div class="content">
+                <br><br><br>
+                <form action="get_movie.php" method="get">
+                    <table class="movie_tabs">
+                        <tr>
+                            <td><img src="image\movie1.webp" alt="movie1"></td>
+                            <td><img src="image\movie2.webp" alt="movie2"></td>
+                            <td><img src="image\movie3.webp" alt="movie3"></td>
+                            <td><img src="image\movie4.webp" alt="movie4"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="movie_title">Freelance</p>
+                                <small>Action/ Comedy</small>
+                                <p>109 min</p>
+                                <p>ENG</p>
+                                <button class="book" name="movie" value="1" type="submit">Book / More Info</button>
+                            </td>
+                            <td>
+                                <p class="movie_title">Oppenheimer</p>
+                                <small>Thriller</small>
+                                <p>180 min</p>
+                                <p>ENG</p>
+                                <button class="book" name="movie" value="2" type="submit">Book / More Info</button>
+                            </td>
+                            <td>
+                                <p class="movie_title">Creation Of The Gods I: Kingdom Of Storms</p>
+                                <small>Action/ Fantasy</small>
+                                <p>148 min</p>
+                                <p>CHI</p>
+                                <button class="book" name="movie" value="3" type="submit">Book / More Info</button>
+                            </td>
+                            <td>
+                                <p class="movie_title">Tejas</p>
+                                <small>Drama/ Thriller</small>
+                                <p>114 min</p>
+                                <p>HIN</p>
+                                <button class="book" name="movie" value="4" type="submit">Book / More Info</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="push"></div>
+        <footer class="footer">
+           <table>
+                <tr>
+                    <td><small><b>Terms and Conditions</b></small></a></td>
+                </tr>
+               <tr>
+                    <td>
+                        <small>
+                            <i>
+                                We reserve the right to update this TERMS OF SERVICE from time to time as we expand our services. <br>
+                                We will post a notice on our home page to inform you that an update has been made. <br>
+                                Your use of the website or mobile application after this Policy has been updated will be deemed acceptance of the updated Policy. <br>&copy; 
+                                Lao~X Cinema
+                            </i>
+                        </small>
+                    </td>
+               </tr>
+           </table>
+        </footer>
+    </div>
+
+
+</body>
+</html>
