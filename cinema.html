@@ -3,24 +3,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lao~X Cinema - Cinemas</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <title>Lao~X Thertre - Cinemas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <img id='company_logo' src="image\logo.png" alt="Logo" width="150px" height="100px">
+        <header id="cinema_header">
+            <img id='cinema_logo' src="image/logo.png" alt="logo" >
+            <table class="cinema">
+                <tr>
+                    <td>
+                        <a href="index.html">Home</a>
+                    </td>
+                    <td>
+                        <a href="movies.html">Movies</a>
+                    </td>
+                    <td>
+                        <a href="cinema.html">Cinemas</a>
+                    </td>
+                    <td>
+                        <a href="rigester.html">Cart</a>
+                    </td>
+                    <td>
+                        <a href="login.html">Register/Login</a>
+                    </td>                   
+                </tr>
+            </table>
         </header>
-        <div id="nav">
-            <nav>
-                <ul class="nav">
-                    <li class="nav"><a href="index.html">Home</a></li>
-                    <li class="nav"><a href="movies.html">Movies</a></li>
-                    <li class="nav"><a class="active" href="cinema.html">Cinema</a></li>
-                    <li class="nav"><a href="cart.html">Cart</a></li>
-                    <li class="nav"><a href="login.html">Register/Login</a></li>
-                </ul>
-            </nav>
+        <div id="advertising_cinema">
+            <h1></h1>
         </div>
 
         <ul class="breadcrumb">
@@ -31,44 +42,47 @@
         <div class="content_cinema">
             <!---------------------------------------------------------------content here---------------------------------------------------->
             <h2>Cinemas</h2>
-            <table class="cinema">
+            <img src="image/mrt.png" id="mrt_map">
+            <table class="cinema_list">
                 <tr>
                     <td>
-                        <img src="./cinema_img/Vivo.jpg" alt="Vivo City">
+                        <img src="image/vivo.jpg" alt="Vivo_City">
                     </td>
                     <td>
-                        <h3>SJ Vivo City</h3>
-                        <p>Level 4, 1 HarbourFront Walk, Singapore 098585</p>
+                        <h3>Lao~X Theatre VivoCity</h3>
+                        <p>HarbourFront Walk, #01-23, VivoCity</p>
+                        <p>Singapore 098585</p>
                         <p>Nearest Transport: HarbourFront Interchange</p><br><br>
-                        <p>Located at Vivo City, featuring luxurious leatherette recliner seats, pamper yourself in ultimate comfort and luxe. SJ Vivo
+                        <p>Located at Vivo City, featuring luxurious leatherette recliner seats, pamper yourself in ultimate comfort and luxe. Lao~X Theatre VivoCity
                             houses the first premium hall in Singapore to offer a choice between Single or Twin seating. 
                             It also features the largest screen in-class, bringing you more action than ever.</p>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="./cinema_img/ion.jpg" alt="Ion Orchard">
+                        <img src="image/jp.jpg" alt="jp">
                     </td>
                     <td>
-                        <h3>SJ Ion Orchard</h3>
-                        <p>Level 5 & 6, 2 Orchard Turn, Singapore 238801</p>
-                        <p>Nearest Transport: Orchard MRT</p><br><br>
-                        <p>Located in the heart of Orchard Road, SJ ION Orchard is SJ theatre's flagship theatre. This
-                            is SJ theatres largest cinema, housing 12 halls and 2 Imax theatres. Our movie goers are 
+                        <h3>Lao~X Theatre Jurong Point</h3>
+                        <p>1 Jurong West Central, #03-26, Jurong Point</p>
+                        <p>Singapore 648886</p>
+                        <p>Nearest Transport: Boon Lay MRT Station</p><br><br>
+                        <p>Located in the west of Singapore, Lao~X Theatre Jurong Point is Lao~X Theatre's flagship theatre. This
+                            is Lao~X Theatres largest cinema, housing 12 halls and 2 Imax theatres. Our movie goers are 
                             treated the finest class viewing experience with leading edge sound systems, largest screen in-class 
                             and luxurious leather seatings.
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <img src="./cinema_img/bugis+.jpg" alt="Bugis+">
+                        <img src="image/Tiong_Bahru.jpg" alt="Tiong_Bahru">
                     </td>
                     <td>
-                        <h3>SJ Bugis+</h3>
-                        <p>Level 5, 201 Victoria St, Singapore 188067</p>
-                        <p>Nearest Transport: Bugis Interchange</p><br><br>
-                        <p>SJ Bugis+ is located at the heart of the vibrant Arts and Heritage District.
-                            Fitted with state-of-the-art digital projection systems, 3D capabilities and Dolby 7.1 Surround Sound, its 
+                        <h3>Lao~X Theatre Tiong Bahru</h3>
+                        <p>302 Tiong Bahru Road, #04-15, Tiong Bahru Plaza</p>
+                        <p>Singapore 168732</p>
+                        <p>Nearest Transport: Tiong Bahru MRT Station</p><br><br>
+                        <p>Lao~X Theatre Tiong Bahru is fitted with state-of-the-art digital projection systems, 3D capabilities and Dolby 7.1 Surround Sound, its 
                             8 halls feature comfortable seats with generous legroom, and regularly plays host to various local and 
                             international film screenings and events.</p>
                     </td>
@@ -78,23 +92,19 @@
 
         <div class="push"></div>
         <footer class="footer">
-           <table>
-            <tr>
-                <td><small><b>Terms and Conditions</b></small></a></td>
-            </tr>
-            <tr>
-                <td>
-                    <small>
-                        <i>
-                            We reserve the right to update this TERMS OF SERVICE from time to time as we expand our services. <br>
-                            We will post a notice on our home page to inform you that an update has been made. <br>
-                            Your use of the website or mobile application after this Policy has been updated will be deemed acceptance of the updated Policy. <br>&copy; 
-                            Lao~X Cinema
-                        </i>
-                    </small>
-                </td>
-           </tr>
-           </table>
+            <table>
+                <tr>
+                    <td><small><b>Terms and Conditions</b></small></td>
+                </tr>
+                <tr>
+                    <td><small><i>By using our servicces, you hereby agree to these terms. When you 
+                        access this website, you acknowledge that you <br>have read and agree to abide by 
+                        the terms described. If you do not agree to the terms, 
+                        you should exit this site. <br>&copy; 名字</i></small>
+                        
+                     </td>
+                </tr>
+            </table>
         </footer>
     </div>
 
