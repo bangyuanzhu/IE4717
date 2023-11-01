@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS `ticketorders` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `seat` int(5) NOT NULL,
-  `dayofweek` varchar(20) NOT NULL,
-  `timing` varchar(20) NOT NULL,
-  `nameCustomer` varchar(100) NOT NULL,
+  `dayofweek` DATE NOT NULL,
+  `timing` TIME NOT NULL,
+  -- `nameCustomer` varchar(100) NOT NULL,
   `payment` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 );
