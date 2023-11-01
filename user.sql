@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS USER
     user_password varchar(20) NOT NULL
 }
 
-INSERT INTO USER(id, user_email, user_password) VALUES(1, 'sam heng', 'cronous999@hotmail.com', '96462991')
-INSERT INTO USER(id, user_email, user_password) VALUES(2, 'Heng Seng En', 'skyscraper960@gmail.com', '96462994')
-INSERT INTO USER(id, user_email, user_password) VALUES(3, 'kenji', 'kenji@gmail.com', '12345678')
-INSERT INTO USER(id, user_email, user_password) VALUES(4, 'karin tan', 'karintan@hotmail.com', '87654321')
-INSERT INTO USER(id, user_email, user_password) VALUES(5, 'kenji', 'sengen96@gmail.com', '12345678')
+INSERT INTO USER(id, user_email, user_password) VALUES(1, 'Alice111@hotmail.com', '111123456');
+INSERT INTO USER(id, user_email, user_password) VALUES(2, 'Brian222@gmail.com', '222123456');
+INSERT INTO USER(id, user_email, user_password) VALUES(3, 'Chris333@gmail.com', '333123456');
+INSERT INTO USER(id, user_email, user_password) VALUES(4, 'David444@hotmail.com', '444123456');
+INSERT INTO USER(id, user_email, user_password) VALUES(5, 'Emily555@gmail.com', '555123456');
