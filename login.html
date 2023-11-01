@@ -32,12 +32,45 @@
             </table>
         </header>
     </div>
-    <div id="confirmationtext">
-        <h2>Oops!</h2>
-        <p>Seems something wrong during your payment. 
-            You can try again or contact us in your account page.
-        <p>
+    <div id="login-form">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <label for="user_email">Username:</label>
+            <input type="text" id="user_email" name="user_email" required>
+            <br><br>
+            <label for="user_password">Password:</label>
+            <input type="password" id="user_password" name="user_password" required>
+            <br><br>
+            <input type="submit" value="Login">
+        </form>
+        <p>Not registered? <a href="javascript:void(0);" onclick="showRegistrationForm()">Register here</a></p>
     </div>
+
+    <div id="registration-form" style="display: none;">
+        <h2>Register</h2>
+        <form action="register.php" method="post">
+            <label for="new-useremail">New Username:</label>
+            <input type="text" id="new-useremail" name="new-useremail" required>
+            <br><br>
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+            <br><br>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already registered? <a href="javascript:void(0);" onclick="showLoginForm()">Log in here</a></p>
+    </div>
+
+    <script>
+        function showRegistrationForm() {
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("registration-form").style.display = "block";
+        }
+
+        function showLoginForm() {
+            document.getElementById("login-form").style.display = "block";
+            document.getElementById("registration-form").style.display = "none";
+        }
+    </script>
 </body>
 
 <footer class="footer">

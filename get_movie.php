@@ -35,7 +35,6 @@
     $director = $row['director'];
 
     $result->free();
-    $db->close();
 ?>
 
 
@@ -120,32 +119,99 @@
                     </div>
                 </div>
                 <div class="booking">
-                    <!-------------------------BOOKNG CODES HERER-------------------------->
-                    <form class="booking" action="ticket_purchase_cont.php" method="get">
-                        <table class="booking">
-                        <tr>
-                            <td>
-                                Please Choose Date and Timing for Movie: <br><br>Date: 
-                                <Select name = "date"> // drop down table for dates
-                                    <option value = "14-Dec-2021">14/12/21</option>
-                                    <option value = "15-Dec-2021">15/12/21</option>
-                                    <option value = "16-Dec-2021">16/12/21</option>
-                                </select>
-                                <br><br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <br>
-                                <input class="ticket_timing_button" name = "timingButton" type="submit" value="1000">
-                                <input class="ticket_timing_button" name = "timingButton" type="submit" value="1400">
-                                <input class="ticket_timing_button" name = "timingButton" type="submit" value="1600">
-                                <input class="ticket_timing_button" name = "timingButton" type="submit" value="1800">
-                                <input class="ticket_timing_button" name = "timingButton" type="submit" value="2000">
-                            </td>
-                        </tr>
-                        </table>
-                    </form>
+                <?php
+                    $cinema_names = array
+                    (
+                    "1" => "Cinema A",
+                    "2" => "Cinema B",
+                    "3" => "Cinema C",
+                    "4" => "Cinema D"
+                    );
+                    $selected_cinema = "";
+                    $selected_date_time = "";
+                    
+                    if (isset($_POST['cinema_id'])) {
+                        $selected_cinema = $_POST['cinema_id'];
+                    }
+                    
+                    if (isset($_POST['date_time'])) {
+                        $selected_date_time = $_POST['date_time'];
+                    }
+                    
+                    // Step 2: Select Cinema
+                    $sql = "SELECT DISTINCT cinema_id FROM availability WHERE movie_id = $movie_id";
+                    $result = $db->query($sql);
+                    
+                    // Create a form to select cinema
+                    echo "<h2>Select Cinema:</h2>";
+                    echo "<form action='' method='post'>";
+                    echo "<label for='cinema_id'>Select Cinema:</label>";
+                    echo "<select name='cinema_id' id='cinema_id' onchange='this.form.submit()'>";
+                    echo "<option value=''>Select Cinema</option>";
+                    foreach ($cinema_names as $cinema_id => $cinema_name) {
+                        $selected = ($cinema_id == $selected_cinema) ? "selected" : "";
+                        echo "<option value='$cinema_id' $selected>$cinema_name</option>";
+                    }
+                    echo "</select>";
+                    echo "</form>";
+                    
+                    // Display the selected cinema on the website
+                    if (!empty($selected_cinema)) {
+                        echo "<p>You selected Cinema: " . $cinema_names[$selected_cinema] . "</p>";
+                    }
+                    
+                    // Step 3: Display available date_time based on selected cinema
+                    if (!empty($selected_cinema)) {
+                        $sql = "SELECT DISTINCT date_time FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema";
+                        $result = $db->query($sql);
+                    
+                        echo "<h2>Select Date and Time:</h2>";
+                        echo "<form action='' method='post'>";
+                        echo "<label for='date_time'>Select Date and Time:</label>";
+                        echo "<select name='date_time' id='date_time' onchange='this.form.submit()'>";
+                        echo "<option value=''>Select Date and Time</option>";
+                        while ($row = $result->fetch_assoc()) {
+                            $date_time = $row['date_time'];
+                            $selected = ($date_time == $selected_date_time) ? "selected" : "";
+                            echo "<option value='$date_time' $selected>$date_time</option>";
+                        }
+                        echo "</select>";
+                    
+                        echo "<input type='hidden' name='movie_id' value='$movie_id'>";
+                        echo "<input type='hidden' name='cinema_id' value='$selected_cinema'>";
+                        echo "</form>";
+                    }
+                    
+                    // Display the selected date_time on the website
+                    if (!empty($selected_date_time)) {
+                        echo "<p>You selected Date and Time: $selected_date_time</p>";
+                    }
+                    
+                    // Step 4: Select Timing
+                    if (!empty($selected_cinema) && !empty($selected_date_time)) {
+                        $sql = "SELECT DISTINCT timing FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema AND date_time = '$selected_date_time'";
+                        $result = $db->query($sql);
+                    
+                        echo "<h2>Select Timing:</h2>";
+                        echo "<form action='seat_selection.php' method='post'>";
+                        echo "<label for='timing'>Select Timing:</label>";
+                        echo "<select name='timing' id='timing'>";
+                        echo "<option value=''>Select Timing</option>";
+                        while ($row = $result->fetch_assoc()) {
+                            $timing = $row['timing'];
+                            echo "<option value='$timing'>$timing</option>";
+                        }
+                    
+                        echo "<input type='hidden' name='movie_id' value='$movie_id'>";
+                        echo "<input type='hidden' name='cinema_id' value='$selected_cinema'>";
+                        echo "<input type='hidden' name='date_time' value='$selected_date_time'>";
+                        echo "<input type='hidden' name='timing' value='$timing'>";
+                        echo "<input type='submit' value='Continue'>";
+                        echo "</form>";
+                        exit;
+                    }
+
+                ?>
                 </div>
 
             </div>
@@ -156,7 +222,7 @@
         <footer class="footer">
            <table>
                <tr>
-                   <td><a href="tnc.html"><small><b>Terms and Conditions</b></small></a></td>
+                   <td><small><b>Terms and Conditions</b></small></a></td>
                </tr>
                <tr>
                    <td><small><i>By using our servicces, you hereby agree to these terms. When you 
