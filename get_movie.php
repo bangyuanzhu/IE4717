@@ -58,7 +58,7 @@
                     <li class="nav"><a href="index.html">Home</a></li>
                     <li class="nav"><a class="active" href="movies.html">Movies</a></li>
                     <li class="nav"><a href="cinema.html">Cinema</a></li>
-                    <li class="nav"><a href="cart.html">Cart</a></li>
+                    <li class="nav"><a href="cart.php">Cart</a></li>
                     <li class="nav"><a href="login.html">Register/Login</a></li>
                 </ul>
             </nav>
