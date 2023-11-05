@@ -3,33 +3,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lao~X Cinema - Home</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel="shortcut icon" type="image/jpg" href="./logo.png"/>
+    <title>Lao~X Cinema - Orders</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/jpg" href="image/logo.png"/>
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <img id='company_logo' src="image\logo.png" alt="Logo" width="150px" height="100px">
-        </header>
-        <div id="nav">
-            <nav>
-                <ul class="nav">
-                    <li class="nav"><a href="index.html">Home</a></li>
-                    <li class="nav"><a href="movies.html">Movies</a></li>
-                    <li class="nav"><a href="cinema.html">Cinema</a></li>
-                    <li class="nav"><a class="active" href="cart.php">Cart</a></li>
-                    <li class="nav"><a href="login.html">Register/Login</a></li>
-                </ul>
-            </nav>
-        </div>
+        <header id="cinema_header">
+                <img id='cinema_logo' src="image/logo.png" alt="logo" >
+                <table class="cinema">
+                    <tr>
+                        <td>
+                            <a href="index.html">Home</a>
+                        </td>
+                        <td>
+                            <a href="movies.html">Movies</a>
+                        </td>
+                        <td>
+                            <a href="cinema.html">Cinemas</a>
+                        </td>
+                        <td>
+                            <a href="cart.php">Orders</a>
+                        </td>
+                        <td>
+                            <a href="login.html">Login/Register</a>
+                        </td>                   
+                    </tr>
+                </table>
+            </header>
         
         <?php
         session_start();
+        ini_set('display_errors', TRUE);
+        error_reporting(-1);
         if (isset($_SESSION['user_id'])) 
         {
             $user_id = $_SESSION['user_id'];
+            $user_email = $_SESSION['user_email'];
         } 
+    
         else 
         {
             $message = "Please Log in first.";
@@ -41,10 +53,11 @@
         }
 
         // Establish a database connection (replace with your database credentials)
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "my_project";
+        $servername ="localhost";
+        $username = "f32ee";
+        $password = "f32ee";
+        $dbname = "f32ee";
+
 
         $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -58,8 +71,8 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            echo "<h2>Order History for User $user_id:</h2>";
-            echo "<table border='1'>";
+            echo "<h2 class='order_history'>&nbsp &nbsp Order History for User $user_email:</h2>";
+            echo "<table class='order_history' border='1' >";
             echo "<tr><th>Movie ID</th><th>Seat</th><th>Day of Week</th><th>Timing</th><th>Payment</th></tr>";
 
             while ($row = $result->fetch_assoc()) {
@@ -74,7 +87,8 @@
 
             echo "</table>";
         } else {
-            echo "<p>No order history found for User $user_id.</p>";
+            echo '<font style="color: #e9e7d7; font-size: 24px;> ';
+            echo '<font style="color: #e9e7d7; font-size: 24px;> '."<p> &nbsp &nbsp  No order history found for User $user_email.</p>";
         }
 
             $conn->close();

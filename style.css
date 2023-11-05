@@ -374,7 +374,7 @@ table.movie_tabs_home img{
 table.movie_tabs_home tr:nth-of-type(even) { 
   vertical-align: top;
   height: 100px;
-  background-color: #73afb6;
+  background-color: #73afb600;
 
 }
 table.movie_tabs_home p{
@@ -392,7 +392,7 @@ table.movie_tabs_home p{
   min-height: 34px;
 } */
 button.book {
-  background-color: #e8e0a3;
+  background-color: #e8e0a300;
   border: 0px;
   color: #3a3313;
   padding: 7px 20px;
@@ -422,7 +422,7 @@ ul.breadcrumb li {
 /* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li+li:before {
   padding: 8px;
-  color: #e9e7d7;
+  color: #e8e0a3;
   content: "/\00a0";
 }
 /* Add a color to all links inside the list */
@@ -490,7 +490,6 @@ button.book {
 button.book:hover {
   background-color: #e9e7d7;
 }
-/*=================Individual Movie styling==================*/
 /* div.mini_wrapper {
   width: 1060px;
   margin: auto;
@@ -511,4 +510,124 @@ p.rating {
   color: #FFF;
   font-size: 13px;
 }
+/*=================Individual Movie styling==================*/
+h.individual_movie_title{
+  color: #e8e0a3;
+  font-size: 60px;
+  margin-bottom: 0px;
+}
 
+
+div.mini_wrapper {
+  width: 1060px;
+  margin: auto;
+}
+/* h2.movie_title {
+  color: #e8e0a3;
+  font-size: 24px;
+  margin-bottom: 0px;
+} */
+p.rating {
+  margin-top: 0px;
+  color: #e9e7d7;
+  font-size: 13px;
+}
+hr.individual_movie_title {
+  border-color: #e9e7d7;
+}
+div.individual_mov {
+  display: flex;
+  padding-bottom: 5%;
+  padding-top: 3%;
+}
+#img img{
+  width: 348;
+  height: 528;
+}
+div #info{
+  padding-left: 50px;
+}
+table.individual_mov {
+  padding-bottom: 20px;
+}
+table.individual_mov td {
+  color: #e9e7d7;
+  vertical-align: top;
+  font-size: 14px;
+}
+table.individual_mov td.detail {
+  max-width: 300px;
+  padding: 0px 10px 10px 20px
+}
+table.individual_mov td.label {
+  color: #fff;
+}
+#synopsis p {
+  font-size: 14px;
+  color: #e9e7d7;
+}
+
+/*=================Login/Register Movie styling==================*/
+#login-form{
+  color: #e9e7d7;
+  margin-left: 6%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  /* border: #e9e7d7 dashed; */
+  font-size: 20px;
+}
+
+form.login_form{
+  padding: auto;
+}
+
+#registration-form{
+  color: #e9e7d7;
+  margin-left: 6%;
+  margin-top: 3%;
+  margin-bottom: 10%;
+  margin-right: 5%;
+  /* border: #e9e7d7 dashed; */
+  font-size: 20px;
+}
+
+p.RegistrationForm a{
+  color: #e9e7d7;
+}
+
+p.RegistrationForm a:hover{
+  color: #73afb6;
+}
+
+/*=================Order Movie styling==================*/
+p.orders a{
+ color:#e9e7d7;
+}
+
+/* img.seating{
+  vertical-align: middle;
+} */
+
+table.order_history{
+  color: #e9e7d7;
+  margin-left: 7%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: #e9e7d7 solid;
+  font-size: 20px;
+}
+
+table.order_history th{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+h2.order_history{
+  color: #e9e7d7;
+  margin-left: 5%;
+  padding-top: 10px;
+}
+#trytrytry{
+  padding: 20%;
+}

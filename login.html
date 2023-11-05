@@ -34,8 +34,8 @@
     </div>
     <div id="login-form">
         <h2>Login</h2>
-        <form action="login.php" method="post">
-            <label for="user_email">Username:</label>
+        <form action="login.php" method="post" class="login_form"> 
+            <label for="user_email">User Email:</label>
             <input type="text" id="user_email" name="user_email" required>
             <br><br>
             <label for="user_password">Password:</label>
@@ -43,7 +43,7 @@
             <br><br>
             <input type="submit" value="Login">
         </form>
-        <p>Not registered? <a href="javascript:void(0);" onclick="showRegistrationForm()">Register here</a></p>
+        <p class="RegistrationForm">Not registered? <a href="javascript:void(0);" onclick="showRegistrationForm()"><b>Register here</b></a></p>
     </div>
 
     <div id="registration-form" style="display: none;">
@@ -57,7 +57,7 @@
             <br><br>
             <input type="submit" value="Register">
         </form>
-        <p>Already registered? <a href="javascript:void(0);" onclick="showLoginForm()">Log in here</a></p>
+        <p class="RegistrationForm">Already registered? <a href="javascript:void(0);" onclick="showLoginForm()"><b>Log in here</b></a></p>
     </div>
 
     <script>

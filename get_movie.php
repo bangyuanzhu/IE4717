@@ -3,9 +3,9 @@
 
     # db credentials
     $servername ="localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "my_project";
+    $username = "f32ee";
+    $password = "f32ee";
+    $dbname = "f32ee";
 
     # get user selection of movie: movie_id
     $movie_id = (int)$_GET['movie'];
@@ -43,31 +43,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJ Theatres - Movies</title>
-    <link rel="stylesheet" href="stylesheet.css">
-    <link rel="shortcut icon" type="image/jpg" href="./logo.PNG"/>
+    <title>Lao~X Thertre - Cinemas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/jpg" href="image/logo.png"/>
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <img id='company_logo' src="image\logo.png" alt="Logo" width="150px" height="100px">
-        </header>
-        <div id="nav">
-            <nav>
-                <ul class="nav">
-                    <li class="nav"><a href="index.html">Home</a></li>
-                    <li class="nav"><a class="active" href="movies.html">Movies</a></li>
-                    <li class="nav"><a href="cinema.html">Cinema</a></li>
-                    <li class="nav"><a href="cart.php">Cart</a></li>
-                    <li class="nav"><a href="login.html">Register/Login</a></li>
-                </ul>
-            </nav>
-        </div>
-        
+        <header id="cinema_header">
+                <img id='cinema_logo' src="image/logo.png" alt="logo" >
+                <table class="cinema">
+                    <tr>
+                        <td>
+                            <a href="index.html">Home</a>
+                        </td>
+                        <td>
+                            <a href="movies.html">Movies</a>
+                        </td>
+                        <td>
+                            <a href="cinema.html">Cinemas</a>
+                        </td>
+                        <td>
+                            <a href="cart.php">Cart</a>
+                        </td>
+                        <td>
+                            <a href="login.html">Register/Login</a>
+                        </td>                   
+                    </tr>
+                </table>
+            </header>
         <ul class="breadcrumb">
             <li><a href="index.html">Home</a></li>
             <li><a href="movies.html">Movie</a></li>
-            <li><?php echo $movie_name ?></li>
+            <li><font color="#e8e0a3"><?php echo $movie_name ?></li>
         </ul>
 
         <div class="content">
@@ -76,9 +83,9 @@
                 # `movie_id`, `movie_name`, `duration`, `language`, `genre`, `distributor`, `release_date`, `image_dir`, `synopsis`, `rating`, `cast`, `director`
             ?>
             <div class="mini_wrapper">
-                <h2 class="movie_title"><?php echo $movie_name ?></h2>
+                <h class="individual_movie_title"><?php echo $movie_name ?></h>
                 <p class="rating">(<?php echo $rating?>)</p>
-                <hr class="movie_title">
+                <hr class="individual_movie_title">
                 <br>
                 <div class="individual_mov">
                     <div id="img">
@@ -87,7 +94,7 @@
                     <div id="info">
                         <div id="details">
                             <h3>Details</h3>
-                            <table class="individual_mov">
+                            <table class="individual_mov" border="0">
                                 <tr>
                                     <td rowspan="2" class="label">Cast: </td>
                                     <td rowspan="2" class="detail"><?php echo $cast ?></td>
@@ -101,14 +108,14 @@
                                 <tr>
                                     <td class="label">Director: </td>
                                     <td class="detail"><?php echo $director ?></td>
-                                    <td class="label">Distributor: </td>
-                                    <td class="detail"><?php echo $distributor ?></td>
+                                    
+                                    <td class="label">Language: </td>
+                                    <td class="detail"><?php echo $language ?></td>
                                 </tr>
                                 <tr>
                                     <td class="label">Genre: </td>
                                     <td class="detail"><?php echo $genre ?></td>
-                                    <td class="label">Language: </td>
-                                    <td class="detail"><?php echo $language ?></td>
+
                                 </tr>
                             </table>
                         </div>
@@ -122,10 +129,9 @@
                 <?php
                     $cinema_names = array
                     (
-                    "1" => "Cinema A",
-                    "2" => "Cinema B",
-                    "3" => "Cinema C",
-                    "4" => "Cinema D"
+                    "1" => "Lao~X Theatre VivoCity",
+                    "2" => "Lao~X Theatre Jurong Point",
+                    "3" => "Lao~X Theatre Tiong Bahru",
                     );
                     $selected_cinema = "";
                     $selected_date_time = "";
@@ -220,19 +226,19 @@
 
         <div class="push"></div>
         <footer class="footer">
-           <table>
-               <tr>
-                   <td><small><b>Terms and Conditions</b></small></a></td>
-               </tr>
-               <tr>
-                   <td><small><i>By using our servicces, you hereby agree to these terms. When you 
-                       access this website, you acknowledge that you <br>have read and agree to abide by 
-                       the terms described. If you do not agree to the terms, 
-                       you should exit this site. <br>&copy; SJ Groups Company</i></small>
-                       
-                    </td>
-               </tr>
-           </table>
+            <table>
+                <tr>
+                    <td><small><b>Terms and Conditions</b></small></td>
+                </tr>
+                <tr>
+                    <td><small><i>By using our servicces, you hereby agree to these terms. When you 
+                        access this website, you acknowledge that you <br>have read and agree to abide by 
+                        the terms described. If you do not agree to the terms, 
+                        you should exit this site. <br>&copy; 名字</i></small>
+                        
+                     </td>
+                </tr>
+            </table>
         </footer>
     </div>
 

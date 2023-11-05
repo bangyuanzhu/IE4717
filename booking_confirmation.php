@@ -37,10 +37,10 @@
             </nav>
         <?php
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "my_project";
+            $servername ="localhost";
+            $username = "f32ee";
+            $password = "f32ee";
+            $dbname = "f32ee";
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -63,16 +63,16 @@
             $selectedPaymentMethod = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
 
             // Display booking details and payment method selection
-            echo "<h2>Booking Confirmation:</h2>";
-            echo "<p>Movie: Movie $movie_id</p>";
-            echo "<p>Cinema: $cinema_id</p>";
-            echo "<p>Date and Time: $date_time $timing</p>";
-            echo "<p>Selected Seats: " . implode(", ", $seat_code) . "</p>";
-            echo "<p>Total Fee: $$totalFee</p>";
+            echo "<h2 class='order_history'>Booking Confirmation:</h2>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Movie: Movie $movie_id</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Cinema: $cinema_id</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Date and Time: $date_time $timing</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Selected Seats: " . implode(", ", $seat_code) . "</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Total Fee: $$totalFee</p>";
 
-            echo "<h3>Select Payment Method:</h3>";
+            echo "<h4>&nbsp &nbsp &nbsp Select Payment Method:</h4>";
             echo "<form action='payment_confirmation.php' method='post'>";
-            echo "<label for='payment_method'>Payment Method:</label>";
+            echo "<label for='payment_method'>&nbsp &nbsp &nbsp &nbsp Payment Method:</label>";
             echo "<select name='payment_method' id='payment_method' required>";
             echo "<option value='Master'>Master</option>";
             echo "<option value='Visa'>Visa</option>";

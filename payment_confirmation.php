@@ -27,7 +27,7 @@
                             <a href="cinema.html">Cinemas</a>
                         </td>
                         <td>
-                            <a href="cart.html">Cart</a>
+                            <a href="cart.php">Cart</a>
                         </td>
                         <td>
                             <a href="login.html">Register/Login</a>
@@ -37,10 +37,10 @@
             </nav>
         <?php
 
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "my_project";
+            $servername ="localhost";
+            $username = "f32ee";
+            $password = "f32ee";
+            $dbname = "f32ee";
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -67,14 +67,15 @@
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
             }
-            echo "<h2>Booking Confirmation:</h2>";
-            echo "<p>Movie: Movie $movie_id</p>";
-            echo "<p>Cinema: $cinema_id</p>";
-            echo "<p>Date and Time: $date_time $timing</p>";
-            echo "<p>Selected Seats: " . implode(", ", $seat_code) . "</p>";
-            echo "<p>Total Fee: $$totalFee</p>";
-            echo "<p>Payment Method: $selectedPaymentMethod</p>";
-            echo "<p>Your booking has been confirmed.</p>";
+            echo '<font style="color: #e9e7d7; font-size: 20px;>';
+            echo '<font style="color: #e9e7d7; font-size: 20px;> '."<h2>&nbsp &nbsp Booking Confirmation:</h2>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Movie: Movie $movie_id</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Cinema: $cinema_id</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Date and Time: $date_time $timing</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Selected Seats: " . implode(", ", $seat_code) . "</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Total Fee: $$totalFee</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Payment Method: $selectedPaymentMethod</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Your booking has been confirmed.</p>";
         ?>
         <div class="push"></div>
         <footer class="footer">

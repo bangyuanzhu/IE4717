@@ -9,32 +9,29 @@
 </head>
 <body>
     <div id="wrapper">
-        <header>
-            <div class="logo_margin">
-                <img id='company_logo' src="image/logo.png" alt="logo" height="100%" class="logo">
-            </div>            
+        <header id="cinema_header">
+            <img id='cinema_logo' src="image/logo.png" alt="logo" >
+            <table class="cinema">
+                <tr>
+                    <td>
+                        <a href="index.html">Home</a>
+                    </td>
+                    <td>
+                        <a href="movies.html">Movies</a>
+                    </td>
+                    <td>
+                        <a href="cinema.html">Cinemas</a>
+                    </td>
+                    <td>
+                        <a href="cart.php">Orders</a>
+                    </td>
+                    <td>
+                        <a href="login.html">Login/Register</a>
+                    </td>                   
+                </tr>
+            </table>
         </header>
-            <nav>
-                <table class="nav" border="0" cellspacing="0">
-                    <tr>
-                        <td>
-                            <a href="index.html">Home</a>
-                        </td>
-                        <td>
-                            <a class="active" href="movies.html">Movies</a>
-                        </td>
-                        <td>
-                            <a href="cinema.html">Cinemas</a>
-                        </td>
-                        <td>
-                            <a href="cart.html">Cart</a>
-                        </td>
-                        <td>
-                            <a href="login.html">Register/Login</a>
-                        </td>                   
-                    </tr>
-                </table>
-            </nav>
+
         <?php
         session_start();
         if (isset($_SESSION['user_id'])) 
@@ -52,10 +49,10 @@
         }
 
         // Establish a database connection (replace with your database credentials)
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "my_project";
+            $servername ="localhost";
+            $username = "f32ee";
+            $password = "f32ee";
+            $dbname = "f32ee";
 
             $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -82,9 +79,10 @@
             $result = $conn->query($sql);
 
             // Create a form to select seats
-            echo "<h2>Select Seats:</h2>";
+            echo "<h2 class='order_history'>Select Seats:</h2>";
+            echo "<img src='image/seating.png' hspace='450' width='500'>";
             echo "<form action='booking_confirmation.php' method='post'>";
-            echo "<div style='display: flex; flex-wrap: wrap;'>";
+            echo "<div style='display: flex; flex-wrap: wrap; padding-left:20%; padding-top:20px;'>";
             $available_seats = [];
 
             while ($row = $result->fetch_assoc()) {
@@ -98,7 +96,7 @@
                 } else {
                     echo "<input type='checkbox' name='selected_seats[]' value='$seat_code' id='seat_$seat_code' disabled>";
                 }
-                echo "<label for='seat_$seat_code'>$seat_code</label>";
+                echo "<label for='seat_$seat_code' style='color:#e9e7d7;font-size: 20px;'>$seat_code</label>";
             }
 
             echo "</div>";

@@ -1,9 +1,9 @@
 <?php
 // Replace these with your actual database credentials
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$database = "my_project";
+$servername ="localhost";
+$username = "f32ee";
+$password = "f32ee";
+$dbname = "f32ee";
 
 // Check if the user submitted the registration form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_password = $_POST["user_password"];
 
     // Connect to the database
-    $db = mysqli_connect($hostname, $username, $password, $database);
+    $db = mysqli_connect($servername, $username, $password, $dbname);
 
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
