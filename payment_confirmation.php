@@ -59,6 +59,21 @@
             $selectedPaymentMethod = $_POST['payment_method'];
             $totalFee = count($seat_code) * 10; // Assuming $10 per seat
 
+            $movie_names = array(
+                1 => "Freelance",
+                2 => "Oppenheimer",
+                3 => "Creation Of The Gods I: Kingdom Of Storms",
+                4 => "Oppenheimer",
+            );
+            $movie_name = $movie_names[$movie_id];
+
+            $cinema_names = array(
+                1 => "Lao~X Theatre VivoCity",
+                2 => "Lao~X Theatre Jurong Point",
+                3 => "Lao~X Theatre Tiong Bahru",
+            );
+            $cinema_name = $cinema_names[$cinema_id];
+
             foreach ($seat_code as $seat) {
                 $sql = "INSERT INTO ticketorders (movie_id, userid, seat, dayofweek, timing, payment)
                         VALUES ($movie_id, '$user_id', '$seat', '$date_time', '$timing', '$selectedPaymentMethod')";
@@ -75,8 +90,8 @@
             }
             echo '<font style="color: #e9e7d7; font-size: 20px;>';
             echo '<font style="color: #e9e7d7; font-size: 20px;> '."<h2>&nbsp &nbsp Booking Confirmation:</h2>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Movie: Movie $movie_id</p>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Cinema: $cinema_id</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Movie: Movie $movie_name</p>";
+            echo "<p>&nbsp &nbsp &nbsp &nbsp Cinema: $cinema_name</p>";
             echo "<p>&nbsp &nbsp &nbsp &nbsp Date and Time: $date_time $timing</p>";
             echo "<p>&nbsp &nbsp &nbsp &nbsp Selected Seats: " . implode(", ", $seat_code) . "</p>";
             echo "<p>&nbsp &nbsp &nbsp &nbsp Total Fee: $$totalFee</p>";
