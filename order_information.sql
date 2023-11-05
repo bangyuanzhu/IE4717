@@ -4,14 +4,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `ticketorders` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `booking_id` int(10) NOT NULL,
-  `title` varchar(50) NOT NULL,
+  -- `booking_id` int(10) NOT NULL,
+  -- `title` varchar(50) NOT NULL,
   `movie_id` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `phone` varchar(10) NOT NULL,
+  `userid` varchar(50) NOT NULL,
+  -- `phone` varchar(10) NOT NULL,
+  `cinema_id` int(11) NOT NULL,
   `seat` int(5) NOT NULL,
-  `dayofweek` DATE NOT NULL,
-  `timing` TIME NOT NULL,
+  `dayofweek` varchar(20) NOT NULL,
+  `timing` varchar(20) NOT NULL,
   -- `nameCustomer` varchar(100) NOT NULL,
   `payment` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
