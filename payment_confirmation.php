@@ -62,9 +62,15 @@
             foreach ($seat_code as $seat) {
                 $sql = "INSERT INTO ticketorders (movie_id, userid, seat, dayofweek, timing, payment)
                         VALUES ($movie_id, '$user_id', '$seat', '$date_time', '$timing', '$selectedPaymentMethod')";
-            
+
+                $upd = "UPDATE availability SET booking_status = 1 WHERE movie_id = $movie_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
+
                 if ($conn->query($sql) !== true) {
                     echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+
+                if ($conn->query($upd) !== true) {
+                    echo "Error: " . $upd . "<br>" . $conn->error;
                 }
             }
             echo '<font style="color: #e9e7d7; font-size: 20px;>';
