@@ -27,10 +27,10 @@
                             <a href="cinema.html">Cinemas</a>
                         </td>
                         <td>
-                            <a href="cart.php">Cart</a>
+                            <a href="cart.php">Orders</a>
                         </td>
                         <td>
-                            <a href="login.html">Register/Login</a>
+                            <a href="login.html">Login/Register</a>
                         </td>                   
                     </tr>
                 </table>
@@ -57,6 +57,21 @@
             $timing = $_POST['timing'];
             $seat_code = $_POST['selected_seats'];
             
+            $movie_names = array(
+                1 => "Freelance",
+                2 => "Oppenheimer",
+                3 => "Creation Of The Gods I: Kingdom Of Storms",
+                4 => "Oppenheimer",
+            );
+            $movie_name = $movie_names[$movie_id];
+
+            $cinema_names = array(
+                1 => "Lao~X Theatre VivoCity",
+                2 => "Lao~X Theatre Jurong Point",
+                3 => "Lao~X Theatre Tiong Bahru",
+            );
+            $cinema_name = $cinema_names[$cinema_id];
+
 
             $totalFee = count($seat_code) * 10; // Assuming $10 per seat
 
@@ -64,15 +79,15 @@
 
             // Display booking details and payment method selection
             echo "<h2 class='order_history'>Booking Confirmation:</h2>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Movie: Movie $movie_id</p>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Cinema: $cinema_id</p>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Date and Time: $date_time $timing</p>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Selected Seats: " . implode(", ", $seat_code) . "</p>";
-            echo "<p>&nbsp &nbsp &nbsp &nbsp Total Fee: $$totalFee</p>";
+            echo "<p class='order_history'>Movie:  $movie_name</p>";
+            echo "<p class='order_history'> Cinema: $cinema_name</p>";
+            echo "<p class='order_history'> Date and Time: $date_time $timing</p>";
+            echo "<p class='order_history'> Selected Seats: " . implode(", ", $seat_code) . "</p>";
+            echo "<p class='order_history'> Total Fee: $$totalFee</p>";
 
-            echo "<h4>&nbsp &nbsp &nbsp Select Payment Method:</h4>";
+            echo "<h4 class='order_history'>Select Payment Method:</h4>";
             echo "<form action='payment_confirmation.php' method='post'>";
-            echo "<label for='payment_method'>&nbsp &nbsp &nbsp &nbsp Payment Method:</label>";
+            echo "<label for='payment_method' style='color:#e9e7d7;font-size: 20px;margin:5%;'>Payment Method:</label>";
             echo "<select name='payment_method' id='payment_method' required>";
             echo "<option value='Master'>Master</option>";
             echo "<option value='Visa'>Visa</option>";
@@ -86,7 +101,7 @@
             foreach ($seat_code as $seat) {
                 echo "<input type='hidden' name='selected_seats[]' value='$seat'>";
             }
-            echo "<input type='submit' value='Continue to Payment'>";
+            echo "<input style='margin-left:20px;padding: 5px;'type='submit' value='Continue to Payment'>";
             echo "</form>";
 
         ?>
@@ -100,8 +115,7 @@
                    <td><small><i>By using our servicces, you hereby agree to these terms. When you 
                        access this website, you acknowledge that you <br>have read and agree to abide by 
                        the terms described. If you do not agree to the terms, 
-                       you should exit this site. <br>&copy; SJ Groups Company</i></small>
-                       
+                       you should exit this site. <br>Lao~X Cinema</i></small>                      
                     </td>
                </tr>
            </table>

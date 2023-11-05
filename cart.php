@@ -98,21 +98,14 @@
         <div class="push"></div>
         <footer class="footer">
            <table>
-                <tr>
+               <tr>
                    <td><small><b>Terms and Conditions</b></small></a></td>
-                </tr>
-                <tr>
-                <td>
-                    <small>
-                        <i>
-                            We reserve the right to update this TERMS OF SERVICE from time to time as we expand our services. <br>
-                            We will post a notice on our home page to inform you that an update has been made. <br>
-                            Your use of the website or mobile application after this Policy has been updated will be deemed acceptance of the updated Policy. <br>&copy; 
-                            Lao~X Cinema
-                        </i>
-                    </small>
-                </td>
-                       
+               </tr>
+               <tr>
+                   <td><small><i>By using our servicces, you hereby agree to these terms. When you 
+                       access this website, you acknowledge that you <br>have read and agree to abide by 
+                       the terms described. If you do not agree to the terms, 
+                       you should exit this site. <br>Lao~X Cinema</i></small>                      
                     </td>
                </tr>
            </table>

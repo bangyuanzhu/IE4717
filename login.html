@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- <script type="text/javascript" src="check.js"></script> -->
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Register/Login</title>
@@ -9,9 +10,9 @@
 </head>
 <body>
     <div id="wrapper">
-        <header id="login_header">
-            <img id='login_logo' src="image/logo.png" alt="logo" >
-            <table class="login">
+        <header id="cinema_header">
+            <img id='cinema_logo' src="image/logo.png" alt="logo" >
+            <table class="cinema">
                 <tr>
                     <td>
                         <a href="index.html">Home</a>
@@ -23,10 +24,10 @@
                         <a href="cinema.html">Cinemas</a>
                     </td>
                     <td>
-                        <a href="cart.php">Cart</a>
+                        <a href="cart.php">Orders</a>
                     </td>
                     <td>
-                        <a href="login.html">Register/Login</a>
+                        <a href="login.html">Login/Register</a>
                     </td>                   
                 </tr>
             </table>
@@ -50,7 +51,7 @@
         <h2>Register</h2>
         <form action="register.php" method="post">
             <label for="new-useremail">New Username:</label>
-            <input type="text" id="new-useremail" name="new-useremail" required>
+            <input type="email" id="new-useremail" name="new-useremail" required placeholder = "Enter your Email here">
             <br><br>
             <label for="new-password">New Password:</label>
             <input type="password" id="new-password" name="new-password" required>
@@ -71,19 +72,19 @@
             document.getElementById("registration-form").style.display = "none";
         }
     </script>
+    
 </body>
 
 <footer class="footer">
     <table>
         <tr>
-            <td><small><b>Terms and Conditions</b></small></td>
+            <td><small><b>Terms and Conditions</b></small></a></td>
         </tr>
         <tr>
             <td><small><i>By using our servicces, you hereby agree to these terms. When you 
                 access this website, you acknowledge that you <br>have read and agree to abide by 
                 the terms described. If you do not agree to the terms, 
-                you should exit this site. <br>&copy; 名字</i></small>
-                
+                you should exit this site. <br>Lao~X Cinema</i></small>                      
              </td>
         </tr>
     </table>

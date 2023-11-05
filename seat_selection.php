@@ -80,7 +80,7 @@
 
             // Create a form to select seats
             echo "<h2 class='order_history'>Select Seats:</h2>";
-            echo "<img src='image/seating.png' hspace='450' width='500'>";
+            echo "<img src='image/seating.png' hspace='31%' width='500'>";
             echo "<form action='booking_confirmation.php' method='post'>";
             echo "<div style='display: flex; flex-wrap: wrap; padding-left:20%; padding-top:20px;'>";
             $available_seats = [];
@@ -105,27 +105,26 @@
             echo "<input type='hidden' name='cinema_id' value='$cinema_id'>";
             echo "<input type='hidden' name='date_time' value='$date_time'>";
             echo "<input type='hidden' name='timing' value='$timing'>";
-            echo "<input type='submit' value='Continue'>";
+            echo "<input style='margin-left:46.5%;margin-top:20px; padding: 15px;' type='submit' value='Continue'>";
             echo "</form>";
 
             $conn->close();
         ?>
             <div class="push"></div>
-        <footer class="footer">
-           <table>
-               <tr>
-                   <td><small><b>Terms and Conditions</b></small></a></td>
-               </tr>
-               <tr>
-                   <td><small><i>By using our servicces, you hereby agree to these terms. When you 
-                       access this website, you acknowledge that you <br>have read and agree to abide by 
-                       the terms described. If you do not agree to the terms, 
-                       you should exit this site. <br>&copy; SJ Groups Company</i></small>
-                       
-                    </td>
-               </tr>
-           </table>
-        </footer>
+            <footer class="footer">
+            <table>
+                <tr>
+                    <td><small><b>Terms and Conditions</b></small></a></td>
+                </tr>
+                <tr>
+                    <td><small><i>By using our servicces, you hereby agree to these terms. When you 
+                        access this website, you acknowledge that you <br>have read and agree to abide by 
+                        the terms described. If you do not agree to the terms, 
+                        you should exit this site. <br>Lao~X Cinema</i></small>                      
+                     </td>
+                </tr>
+            </table>
+         </footer>
     </div>
 
 </body>
