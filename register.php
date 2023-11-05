@@ -17,6 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . mysqli_connect_error());
     }
 
+    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email address: " . $user_email;
+        header("Location: register.html");
+    }
+
     // Check if the user_email already exists
     $query = "SELECT id FROM USER WHERE user_email = '$user_email'";
     $result = mysqli_query($db, $query);
