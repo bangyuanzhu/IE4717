@@ -20,13 +20,12 @@
     $result = $db->query($query); // point db to query
     $row = $result->fetch_assoc();
 
-    # format of MOVIE table: `movie_id`, `movie_name`, `duration`, `language`, `genre`, `distributor`, `release_date`, `image_dir`, `synopsis`, `rating`, `cast`, `director`
+    # format of MOVIE table: `movie_id`, `movie_name`, `duration`, `language`, `genre`, `release_date`, `image_dir`, `synopsis`, `rating`, `cast`, `director`
     # store all attr of the movie into variables to populate html codes below
     $movie_name = $row['movie_name'];
     $duration = $row['duration'];
     $language = $row['language'];
     $genre = $row['genre'];
-    $distributor = $row['distributor'];
     $release_date = $row['release_date'];
     $image_dir = $row['image_dir'];
     $synopsis = $row['synopsis'];
@@ -80,7 +79,7 @@
         <div class="content">
             <!---------------------------------------------------------------content here---------------------------------------------------->
             <?php
-                # `movie_id`, `movie_name`, `duration`, `language`, `genre`, `distributor`, `release_date`, `image_dir`, `synopsis`, `rating`, `cast`, `director`
+                # `movie_id`, `movie_name`, `duration`, `language`, `genre`, `release_date`, `image_dir`, `synopsis`, `rating`, `cast`, `director`
             ?>
             <div class="mini_wrapper">
                 <h class="individual_movie_title"><?php echo $movie_name ?></h>

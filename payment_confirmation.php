@@ -79,7 +79,7 @@
                 $sql = "INSERT INTO ticketorders (movie_id, userid, cinema_id, seat, dayofweek, timing, payment)
                         VALUES ($movie_id, '$user_id', $cinema_id, '$seat', '$date_time', '$timing', '$selectedPaymentMethod')";
                 
-                $upd = "UPDATE availability SET booking_status = 1 WHERE cinema_id = $cinema_id AND movie_id = $movie_id AND date_time = '$date_time' AND timing = '$timing' AND seat = '$seat'";
+                $upd = "UPDATE availability SET booking_status = 1 WHERE cinema_id = $cinema_id AND movie_id = $movie_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
 
                 if ($conn->query($sql) !== true) {
                     echo "Error: " . $sql . "<br>" . $conn->error;
