@@ -89,6 +89,20 @@
                     echo "Error: " . $upd . "<br>" . $conn->error;
                 }
             }
+            $to = 'f32ee@localhost';
+            $subject = 'Booking Confirmation';
+            $message = "Movie: $movie_name\n
+                        Cinema: $cinema_name\n
+                        Date and Time: {$date_time} {$timing}\n
+                        Selected Seats: " . implode(", ", $seat_code) . "\n
+                        Total Fee: $$totalFee\n
+                        Payment Method: $selectedPaymentMethod";
+
+            $headers = 'From: f32ee@localhost' . "\r\n" .
+            'Reply-To: f32ee@localhost' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+            mail($to, $subject, $message, $headers,'-ff32ee@localhost');
+
             echo "<h2 class='order_history'>Booking Confirmation:</h2>";
             echo "<p class='order_history'>Movie:$movie_name</p>";
             echo "<p class='order_history'>Cinema: $cinema_name</p>";
