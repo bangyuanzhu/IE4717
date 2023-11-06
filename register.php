@@ -25,6 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: register.html");
     }
 
+    if (strlen($user_password) < 9) {
+        echo "Password is too short, redirect back to the register page";
+        header("Location: register.html");
+    }
+
 
 
     // Check if the user_email already exists
