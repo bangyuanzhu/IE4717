@@ -19,16 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$db) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    
-    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email address: " . $user_email;
-        header("Location: register.html");
-    }
-    if (strlen($user_password) < 9 || !ctype_digit($user_password)) {
-        echo "Password must be at least 9 length digits.";
-        header("Location: register.html");
-    }
-
 
     // Check if the user_email already exists
     $query = "SELECT id FROM USER WHERE user_email = '$user_email'";
@@ -37,7 +27,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) > 0) {
         // User already exists - provide an error message or redirect
         header("Location: failure.html");
-    } else {
+    } 
+    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email address: " . $user_email;
+        header("Location: failure.html");
+    }
+    if (strlen($user_password) < 9) {
+        echo "Password must be at least 9 length digits.";
+        header("Location: failure.html");
+    }
+    else {
         // User doesn't exist, insert a new record
         $insertQuery = "INSERT INTO USER (user_email, user_password) VALUES ('$user_email', '$user_password')";
         if (mysqli_query($db, $insertQuery)) {
