@@ -611,7 +611,7 @@ p.orders a{
 
 table.order_history{
   color: #e9e7d7;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top: 5px;
   margin-bottom: 20px;
   border: #e9e7d7 solid;
@@ -630,17 +630,41 @@ h2.order_history{
   font-size: 36px;
 }
 
+label.order_history{
+  color: #e9e7d7;
+  margin-left: 5%;
+  padding-top: 10px;
+  font-size: 36px;
+}
+
 p.order_history{
   color: #e9e7d7;
   margin-left: 5%;
   padding-top: 10px;
   font-size: 20px;
 }
+
+
+p.order_history a:visited{
+  color: #73afb6;
+}
+
 h4.order_history{
   color: #e9e7d7;
   margin-left: 5%;
   padding-top: 10px;
   font-size: 20px;
+}
+
+label.order_history{
+  color: #e9e7d7;
+  margin-left: 5%;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+input.order_history{
+  margin-left: 5%;
 }
 
 h2.failure{
@@ -653,6 +677,13 @@ h2.failure{
 p.failure{
   color: #e9e7d7;
   margin-left: 10%;
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+h4.shopping_cart{
+  color: #e9e7d7;
+  margin-left: 5%;
   padding-top: 10px;
   font-size: 20px;
 }

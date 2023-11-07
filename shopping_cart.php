@@ -33,9 +33,11 @@
             </header>
         
         <?php
-        session_start();
         ini_set('display_errors', TRUE);
         error_reporting(-1);
+        session_start();
+        ini_set('display_errors', TRUE);
+      error_reporting(-1);
         if (isset($_SESSION['user_id'])) 
         {
             $user_id = $_SESSION['user_id'];
@@ -66,14 +68,14 @@
         }
 
         // Query the database for the user's order history
-        $sql = "SELECT * FROM ticketorders WHERE userid = '$user_id' AND payment = 'Master'OR payment = 'Visa'OR payment = 'PayLah'";
+        $sql = "SELECT * FROM ticketorders WHERE userid = '$user_id' AND payment = 'pending'";
 
         $result = $conn->query($sql);
-
+        $seat_id = "";
         if ($result->num_rows > 0) {
-            echo "<h2 class='order_history'>&nbsp &nbsp Order History for User $user_email:</h2>";
+            echo "<h2 class='order_history'>&nbsp &nbsp Shopping cart for User $user_email:</h2>";
             echo "<table class='order_history' border='1' >";
-            echo "<tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th><th>Payment</th></tr>";
+            echo "<tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th></tr>";
 
             while ($row = $result->fetch_assoc()) {
                 $movie_names = array(
@@ -90,7 +92,7 @@
                     3 => "Lao~X Theatre Tiong Bahru",
                 );
                 $cinema_name = $cinema_names[$row['cinema_id']];
-    
+                $seat_id = $seat_id.','.$row['seat_id'];
                 
                 echo "<tr>";
                 echo "<td>" . $cinema_name . "</td>";
@@ -98,12 +100,32 @@
                 echo "<td>" . $row['seat'] . "</td>";
                 echo "<td>" . $row['dayofweek'] . "</td>";
                 echo "<td>" . $row['timing'] . "</td>";
-                echo "<td>" . $row['payment'] . "</td>";
                 echo "</tr>";
             }
 
             echo "</table>";
-        } else {
+            
+            $selectedPaymentMethod = isset($_POST['payment_method']) ? $_POST['payment_method'] : '';
+
+            echo "<h4 class='order_history'>Select Payment Method:</h4>";
+            echo "<form action='test.php' method='post'>";
+            echo "<label for='payment_method' style='color:#e9e7d7;font-size: 20px;margin:5%;'>Payment Method:<br></label>";
+            echo "<select name='payment_method' id='payment_method' style='margin-left:5%;' required >";
+            echo "<option value='Master'>Master</option>";
+            echo "<option value='Visa'>Visa</option>";
+            echo "<option value='PayLah'>PayLah</option>";
+            echo "</select>";
+            echo "<input type='hidden' name='user_id' value='$user_id'>";
+            echo "<input type='hidden' name='user_email' value='$user_email'>";
+            echo "<input type='hidden' name='seat_id' value='$seat_id'>";
+            // echo $seat_id;
+            echo "<input style='margin-left:20px;padding: 5px;'type='submit' value='Continue to Payment'>";
+            echo "</form>";
+            
+        } 
+        
+        
+        else {
             echo '<font style="color: #e9e7d7; font-size: 24px;> ';
             echo '<font style="color: #e9e7d7; font-size: 24px;> '."<p> &nbsp &nbsp  No order history found for User $user_email.</p>";
         }

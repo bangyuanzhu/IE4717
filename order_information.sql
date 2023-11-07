@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `ticketorders` (
   `userid` varchar(50) NOT NULL,
   `cinema_id` int(11) NOT NULL,
   `seat` int(5) NOT NULL,
+  `seat_id` int(50) NOT NULL,
   `dayofweek` varchar(20) NOT NULL,
   `timing` varchar(20) NOT NULL,
   `payment` varchar(20) NOT NULL,

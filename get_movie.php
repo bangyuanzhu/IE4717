@@ -65,6 +65,9 @@
                             <a href="cart.php">Orders</a>
                         </td>
                         <td>
+                            <a href="add_to_shoppingcart.php">Cart</a>
+                        </td>  
+                        <td>
                             <a href="login.html">Login/Register</a>
                         </td>                   
                     </tr>
@@ -134,6 +137,7 @@
                     );
                     $selected_cinema = "";
                     $selected_date_time = "";
+                    $selected_timing = "";
                     
                     if (isset($_POST['cinema_id'])) {
                         $selected_cinema = $_POST['cinema_id'];
@@ -141,6 +145,10 @@
                     
                     if (isset($_POST['date_time'])) {
                         $selected_date_time = $_POST['date_time'];
+                    }
+                    
+                    if (isset($_POST['timing'])) {
+                        $selected_timing = $_POST['timing'];
                     }
                     
                     // Step 2: Select Cinema
@@ -170,16 +178,18 @@
                         $sql = "SELECT DISTINCT date_time FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema";
                         $result = $db->query($sql);
                     
-                        echo "<h2>Select Date and Time:</h2>";
+                        echo "<h2>Select Date:</h2>";
                         echo "<form action='' method='post'>";
-                        echo "<label for='date_time'>Select Date and Time:</label>";
+                        echo "<label for='date_time'>Select Date:</label>";
                         echo "<select name='date_time' id='date_time' onchange='this.form.submit()'>";
                         echo "<option value=''>Select Date and Time</option>";
+                        
                         while ($row = $result->fetch_assoc()) {
                             $date_time = $row['date_time'];
                             $selected = ($date_time == $selected_date_time) ? "selected" : "";
                             echo "<option value='$date_time' $selected>$date_time</option>";
                         }
+                        
                         echo "</select>";
                     
                         echo "<input type='hidden' name='movie_id' value='$movie_id'>";
@@ -189,33 +199,67 @@
                     
                     // Display the selected date_time on the website
                     if (!empty($selected_date_time)) {
-                        echo "<p>You selected Date and Time: $selected_date_time</p>";
+                        echo "<p>You selected Date: $selected_date_time</p>";
                     }
                     
                     // Step 4: Select Timing
+                    
                     if (!empty($selected_cinema) && !empty($selected_date_time)) {
                         $sql = "SELECT DISTINCT timing FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema AND date_time = '$selected_date_time'";
                         $result = $db->query($sql);
-                    
+
                         echo "<h2>Select Timing:</h2>";
-                        echo "<form action='seat_selection.php' method='post'>";
+                        echo "<form action='' method='post'>";
                         echo "<label for='timing'>Select Timing:</label>";
-                        echo "<select name='timing' id='timing'>";
+                        echo "<select name='timing' id='timing' onchange='this.form.submit()'>>";
                         echo "<option value=''>Select Timing</option>";
+                        
                         while ($row = $result->fetch_assoc()) {
                             $timing = $row['timing'];
-                            echo "<option value='$timing'>$timing</option>";
+                            $selected = ($timing == $selected_timing) ? "selected" : "";
+                            echo "<option value='$timing' $selected>$timing</option>";
                         }
+                        
+                        echo "</select>";
                     
                         echo "<input type='hidden' name='movie_id' value='$movie_id'>";
                         echo "<input type='hidden' name='cinema_id' value='$selected_cinema'>";
                         echo "<input type='hidden' name='date_time' value='$selected_date_time'>";
-                        echo "<input type='hidden' name='timing' value='$timing'>";
+                        echo "</form>";
+                    }
+                    
+                    // Display the selected date_time on the website
+                    if (!empty($selected_timing)) {
+                        echo "<p>You selected Date: $selected_timing</p>";
+                    }
+
+
+                    if (!empty($selected_cinema) && !empty($selected_date_time) && !empty($selected_timing)) {
+                        // $sql = "SELECT DISTINCT timing FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema AND date_time = '$selected_date_time'";
+                        // $result = $db->query($sql);
+                    
+                        // echo "<h2>Select Timing:</h2>";
+                        echo "<form action='seat_selection.php' method='post'>";
+                        // echo "<label for='timing'>Select Timing:</label>";
+                        // echo "<select name='timing' id='timing'>";
+                        // echo "<option value=''>Select Timing</option>";
+                        // while ($row = $result->fetch_assoc()) {
+                        //     $timing = $row['timing'];
+                        //     $selected = ($timing == $selected_timing) ? "selected" : "";
+                        //     echo "<option value='$timing' $selected>$timing</option>";
+                        // }
+                        // if (!empty($selected_timing)) {
+                        //     echo "<p>You selected Date: $selected_timing</p>";
+                        // }
+                        echo "<input type='hidden' name='movie_id' value='$movie_id'>";
+                        echo "<input type='hidden' name='cinema_id' value='$selected_cinema'>";
+                        echo "<input type='hidden' name='date_time' value='$selected_date_time'>";
+                        echo "<input type='hidden' name='timing' value='$selected_timing'>";
                         echo "<input type='submit' value='Continue'>";
                         echo "</form>";
                         exit;
                     }
-
+                    
                 ?>
                 </div>
 

@@ -13,3 +13,4 @@ INSERT INTO USER(id, user_email, user_password) VALUES(2, 'Brian222@gmail.com', 
 INSERT INTO USER(id, user_email, user_password) VALUES(3, 'Chris333@gmail.com', '333123456');
 INSERT INTO USER(id, user_email, user_password) VALUES(4, 'David444@hotmail.com', '444123456');
 INSERT INTO USER(id, user_email, user_password) VALUES(5, 'Emily555@gmail.com', '555123456');
+INSERT INTO USER(id, user_email, user_password) VALUES(6, 'admin@localhost', '111111111');

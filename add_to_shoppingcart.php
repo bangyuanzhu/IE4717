@@ -38,6 +38,7 @@
         <?php
             ini_set('display_errors', TRUE);
             error_reporting(-1);
+
             $servername ="localhost";
             $username = "f32ee";
             $password = "f32ee";
@@ -74,51 +75,38 @@
                 3 => "Lao~X Theatre Tiong Bahru",
             );
             $cinema_name = $cinema_names[$cinema_id];
+
+
+            foreach ($seat_code as $seat) {
+
+                $sql2 = "SELECT * FROM availability WHERE movie_id = $movie_id AND cinema_id = $cinema_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
+                $result = $conn->query($sql2)->fetch_object();
+                $seat_id = $result->id;
+                // echo "<p class='order_history'>Movie:$seat_id</p>";
             
-            
-                foreach ($seat_code as $seat) {
+                $sql1 = "INSERT INTO ticketorders (movie_id, userid, cinema_id, seat, seat_id, dayofweek, timing, payment)
+                        VALUES ($movie_id, '$user_id', $cinema_id, '$seat','$seat_id', '$date_time', '$timing', '$selectedPaymentMethod')";
+                // echo "<p class='order_history'>Try:$seat</p>";
+                // $upd = "UPDATE availability SET booking_status = 1 WHERE cinema_id = $cinema_id AND movie_id = $movie_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
 
-                    $sql2 = "SELECT * FROM availability WHERE movie_id = $movie_id AND cinema_id = $cinema_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
-                    $result = $conn->query($sql2)->fetch_object();
-                    $seat_id = $result->id;
-                    // echo "<p class='order_history'>Movie:$seat_id</p>";
-                
-                    $sql1 = "INSERT INTO ticketorders (movie_id, userid, cinema_id, seat, seat_id, dayofweek, timing, payment)
-                            VALUES ($movie_id, '$user_id', $cinema_id, '$seat','$seat_id', '$date_time', '$timing', '$selectedPaymentMethod')";
-                    // echo "<p class='order_history'>Try:$seat</p>";
-                    $upd = "UPDATE availability SET booking_status = 1 WHERE cinema_id = $cinema_id AND movie_id = $movie_id AND date_time = '$date_time' AND timing = '$timing' AND seat_code = '$seat'";
-
-                    if ($conn->query($sql1) !== true) {
-                        echo "Error: " . $sq1 . "<br>" . $conn->error;
-                    }
-
-                    if ($conn->query($upd) !== true) {
-                        echo "Error: " . $upd . "<br>" . $conn->error;
-                    }
+                if ($conn->query($sql1) !== true) {
+                    echo "Error: " . $sq1 . "<br>" . $conn->error;
                 }
-            
-            $to = 'f32ee@localhost';
-            $subject = 'Booking Confirmation';
-            $message = "Movie: $movie_name\n
-                        Cinema: $cinema_name\n
-                        Date and Time: {$date_time} {$timing}\n
-                        Selected Seats: " . implode(", ", $seat_code) . "\n
-                        Total Fee: $$totalFee\n
-                        Payment Method: $selectedPaymentMethod";
 
-            $headers = 'From: f32ee@localhost' . "\r\n" .
-            'Reply-To: f32ee@localhost' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-            mail($to, $subject, $message, $headers,'-ff32ee@localhost');
+                
+            }
 
-            echo "<h2 class='order_history'>Booking Confirmation:</h2>";
+            echo "<h2 class='order_history'>Shopping cart:</h2>";
             echo "<p class='order_history'>Movie:$movie_name</p>";
             echo "<p class='order_history'>Cinema: $cinema_name</p>";
             echo "<p class='order_history'>Date and Time: $date_time $timing</p>";
             echo "<p class='order_history'>Selected Seats: " . implode(", ", $seat_code) . "</p>";
             echo "<p class='order_history'>Total Fee: $$totalFee</p>";
-            echo "<p class='order_history'>Payment Method: $selectedPaymentMethod</p>";
-            echo "<p class='order_history'>Your booking has been confirmed.</p>";
+            // echo "<p class='order_history'>Payment Method: $selectedPaymentMethod</p>";
+            echo "<p class='order_history'>Your booking has been added to cart.</p>";
+            echo "<p class='order_history'>Click <a href='shopping_cart.php'>here </a> to go to your cart.</p>";
+            echo "<p class='order_history'>Click <a href='movies.html'>here </a> to add more tickets.</p>";
+            
         ?>
         <div class="push"></div>
         <footer class="footer">
