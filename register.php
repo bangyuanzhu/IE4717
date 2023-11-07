@@ -24,12 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid email address: " . $user_email;
         header("Location: register.html");
     }
-
     if (strlen($user_password) < 9 && ctype_digit($user_password)) {
         echo "Password must be at least 9 length digits.";
         header("Location: register.html");
     }
-
 
 
     // Check if the user_email already exists

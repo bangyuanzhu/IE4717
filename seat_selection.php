@@ -33,6 +33,8 @@
         </header>
 
         <?php
+        ini_set('display_errors', TRUE);
+        error_reporting(-1);
         session_start();
         if (isset($_SESSION['user_id'])) 
         {
@@ -88,7 +90,6 @@
             while ($row = $result->fetch_assoc()) {
                 $seat_code = $row['seat_code'];
                 $booking_status = $row['booking_status'];
-                
                 // Check if the seat is available
                 if ($booking_status == 0) {
                     $available_seats[] = $seat_code;
@@ -100,6 +101,7 @@
             }
 
             echo "</div>";
+            
             echo "<input type='hidden' name='user_id' value='$user_id'>";
             echo "<input type='hidden' name='movie_id' value='$movie_id'>";
             echo "<input type='hidden' name='cinema_id' value='$cinema_id'>";
@@ -110,6 +112,9 @@
 
             $conn->close();
         ?>
+            
+            
+            
             <div class="push"></div>
             <footer class="footer">
             <table>

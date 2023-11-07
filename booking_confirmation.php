@@ -81,14 +81,14 @@
             echo "<h2 class='order_history'>Booking Confirmation:</h2>";
             echo "<p class='order_history'>Movie:  $movie_name</p>";
             echo "<p class='order_history'> Cinema: $cinema_name</p>";
-            echo "<p class='order_history'> Date and Time: $date_time $timing</p>";
+            echo "<p class='order_history'> Date: $date_time $timing</p>";
             echo "<p class='order_history'> Selected Seats: " . implode(", ", $seat_code) . "</p>";
             echo "<p class='order_history'> Total Fee: $$totalFee</p>";
 
-            echo "<h4 class='order_history'>Select Payment Method:</h4>";
+            echo "<h4 class='order_history'>Wanna directly buy? Select Payment Method:</h4>";
             echo "<form action='payment_confirmation.php' method='post'>";
-            echo "<label for='payment_method' style='color:#e9e7d7;font-size: 20px;margin:5%;'>Payment Method:</label>";
-            echo "<select name='payment_method' id='payment_method' required>";
+            // echo "<label for='payment_method' style='color:#e9e7d7;font-size: 20px;margin:5%;'> <br></label>";
+            echo "<select name='payment_method' id='payment_method' style='margin-left:5%;' required >";
             echo "<option value='Master'>Master</option>";
             echo "<option value='Visa'>Visa</option>";
             echo "<option value='PayLah'>PayLah</option>";
@@ -102,6 +102,21 @@
                 echo "<input type='hidden' name='selected_seats[]' value='$seat'>";
             }
             echo "<input style='margin-left:20px;padding: 5px;'type='submit' value='Continue to Payment'>";
+            echo "</form>";
+
+            
+            echo "<h4 class='order_history'>Wanna buy other tickets? Add to shopping cart first:</h4>";
+            echo "<form action='add_to_shoppingcart.php' method='post'>";
+            echo "<input type='hidden' name='user_id' value='$user_id'>";
+            echo "<input type='hidden' name='movie_id' value='$movie_id'>";
+            echo "<input type='hidden' name='cinema_id' value='$cinema_id'>";
+            echo "<input type='hidden' name='date_time' value='$date_time'>";
+            echo "<input type='hidden' name='timing' value='$timing'>";
+            echo "<input type='hidden' name='payment_method' value=pending>";
+            foreach ($seat_code as $seat) {
+                echo "<input type='hidden' name='selected_seats[]' value='$seat'>";
+            }
+            echo "<input style='margin-left:5%;padding: 5px;'type='submit' value='Continue to Shopping cart'>";
             echo "</form>";
 
         ?>

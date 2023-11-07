@@ -31,7 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
             // Redirect to the welcome page
             echo "Welcome" ;
-            $redirectURL = "movies.html";
+            if ($_SESSION['user_email'] == 'admin@localhost'){
+                $redirectURL = "admin.php";
+            }
+            else{$redirectURL = "movies.html";}
+            
             echo "<script>window.location.href = '$redirectURL';</script>";
         } else {
             echo "Invalid username or password.";
