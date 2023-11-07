@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: register.html");
     }
 
-    if (strlen($user_password) < 9) {
-        echo "Password is too short, redirect back to the register page";
+    if (strlen($user_password) < 9 && ctype_digit($user_password)) {
+        echo "Password must be at least 9 length digits.";
         header("Location: register.html");
     }
 
