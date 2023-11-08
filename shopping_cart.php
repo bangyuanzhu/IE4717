@@ -33,11 +33,11 @@
             </header>
         
         <?php
-        ini_set('display_errors', TRUE);
+        ini_set('display_errors', FALSE);
         error_reporting(-1);
         session_start();
         ini_set('display_errors', TRUE);
-      error_reporting(-1);
+        error_reporting(-1);
         if (isset($_SESSION['user_id'])) 
         {
             $user_id = $_SESSION['user_id'];

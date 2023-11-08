@@ -66,11 +66,12 @@
         }
 
         // Query the database for the user's order history
-        $sql = "SELECT * FROM ticketorders WHERE userid = '$user_id' AND payment = 'Master'OR payment = 'Visa'OR payment = 'PayLah'";
+        $sql = "SELECT * FROM ticketorders WHERE userid = '$user_id' AND (payment = 'Master'OR payment = 'Visa'OR payment = 'PayLah')";
 
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
+            // echo "<h2 class='order_history'>&nbsp &nbsp Order History for User $user_id:</h2>";
             echo "<h2 class='order_history'>&nbsp &nbsp Order History for User $user_email:</h2>";
             echo "<table class='order_history' border='1' >";
             echo "<tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th><th>Payment</th></tr>";

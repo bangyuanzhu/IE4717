@@ -38,7 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             
             echo "<script>window.location.href = '$redirectURL';</script>";
         } else {
+            $redirectURL = "index.html";
             echo "Invalid username or password.";
+            echo "<p class='order_history'>Click <a href='javascript:history.back(-1)'>here </a> to go back to Login page.</p>";
+            // echo "<script>window.location.href = '$redirectURL';</script>";
+            
         }
 
         // Close the database connection
