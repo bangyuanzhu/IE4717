@@ -56,8 +56,9 @@
 
         // Establish a database connection (replace with your database credentials)
         $servername ="localhost";
-        $username = "f32ee";
+        $username = "f32ee";        
         $password = "f32ee";
+
         $dbname = "f32ee";
 
 
@@ -76,7 +77,7 @@
             echo "<h2 class='order_history'>&nbsp &nbsp Shopping cart for User $user_email:</h2>";
             echo "<table class='order_history' border='1' >";
             echo "<tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th></tr>";
-
+            $table="";
             while ($row = $result->fetch_assoc()) {
                 $movie_names = array(
                     1 => "Freelance",
@@ -94,6 +95,13 @@
                 $cinema_name = $cinema_names[$row['cinema_id']];
                 $seat_id = $seat_id.','.$row['seat_id'];
                 
+                $table=$table."<tr>";
+                $table=$table."<td>" . $cinema_name . "</td>";
+                $table=$table."<td>" . $movie_name . "</td>";
+                $table=$table."<td>" . $row['seat'] . "</td>";
+                $table=$table."<td>" . $row['dayofweek'] . "</td>";
+                $table=$table."<td>" . $row['timing'] . "</td>";
+                $table=$table."</tr>";
                 echo "<tr>";
                 echo "<td>" . $cinema_name . "</td>";
                 echo "<td>" . $movie_name . "</td>";
@@ -118,9 +126,32 @@
             echo "<input type='hidden' name='user_id' value='$user_id'>";
             echo "<input type='hidden' name='user_email' value='$user_email'>";
             echo "<input type='hidden' name='seat_id' value='$seat_id'>";
+            // echo "<input type='hidden' name='selected_seats' value='$row['seat']'>";
             // echo $seat_id;
             echo "<input style='margin-left:20px;padding: 5px;'type='submit' value='Continue to Payment'>";
             echo "</form>";
+
+
+            $to = $user_email;
+            $subject = 'Booking Confirmation';
+            $message = '
+            <html>
+            <head>
+            <meta charset="utf-8">
+            <title>Movie Booking Confirmation</title>
+            </head>
+            <body>
+            <p>Thank you for choosing Lao~ X Cinema!</p>
+            <table class="order_history" border="1" >
+            <tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th></tr>
+            '.$table.'
+            </body>
+            </html>
+            ';
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= 'From: f32ee@localhost' . "\r\n";
+            mail($to, $subject, $message, $headers);
             
         } 
         
