@@ -1,0 +1,168 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lao~X Cinema - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="image/logo.png"/>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div class="logo_margin">
+                <img id='company_logo' src="image/logo.png" alt="logo" height="100%" class="logo">
+            </div>            
+        </header>
+            <nav>
+                <table class="nav" border="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <a class="active" href="index.html">Home</a>
+                        </td>
+                        <td>
+                            <a href="movies.html">Movies</a>
+                        </td>
+                        <td>
+                            <a href="cinema.html">Cinemas</a>
+                        </td>
+                        <td>
+                            <a href="cart.php">Orders</a>
+                        </td>
+                        <td>
+                            <a href="login.html">Login/Register</a>
+                        </td>
+                        <td>
+                            <a href="admin.php">Admin Page</a>
+                        </td>                      
+                    </tr>
+                </table>
+            </nav>
+
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="image\poster1.jpg" style="width:100%" class="center">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="image\poster2.jpeg" style="width:100%" class="center">
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="image\poster3.jpg" style="width:100%" class="center">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="image\poster4.jpg" style="width:100%" class="center">
+        </div>
+        
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+    </div>
+
+
+    <div class="content">
+        <br><br><br>
+        <form action="get_movie.php" method="get">
+            <table class="movie_tabs_home" border="0">
+                <tr>
+                    <td><img src="image\movie1.webp" alt="movie1"></td>
+                    <td><img src="image\movie2.webp" alt="movie2"></td>
+                    <td><img src="image\movie3.webp" alt="movie3"></td>
+                    <td><img src="image\movie4.webp" alt="movie4"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="movie_title">Freelance</h2>
+                        <!-- <p>Action/ Comedy</p>
+                        <p>109 min</p>
+                        <p>ENG</p>
+                        <p class="rating">NC16</p> -->
+                        <button class="book" name="movie" value="1" type="submit">Book / More Info</button>
+                    </td>
+                    <td>
+                        <h2 class="movie_title">Oppenheimer</h2>
+                        <!-- <p>Thriller</p>
+                        <p>180 min</p>
+                        <p>ENG</p>
+                        <p class="rating">M18</p> -->
+                        <button class="book" name="movie" value="2" type="submit">Book / More Info</button>
+                    </td>
+                    <td>
+                        <h4 class="movie_title">Creation Of The Gods I: Kingdom Of Storms</h4>
+                        <!-- <p>Action/ Fantasy</p>
+                        <p>148 min</p>
+                        <p>CHI</p>
+                        <p class="rating">NC16</p> -->
+                        <button class="book" name="movie" value="3" type="submit">Book / More Info</button>
+                    </td>
+                    <td>
+                        <h2 class="movie_title">Tejas</h2>
+                        <!-- <p>Drama/ Thriller</p>
+                        <p>114 min</p>
+                        <p>HIN</p>
+                        <p class="rating">PG13</p> -->
+                        <button class="book" name="movie" value="4" type="submit">Book / More Info</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() 
+        {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) 
+            {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) 
+                {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++)  
+            {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 1000); // Change image every 2 seconds
+        }
+    </script>
+
+    <div class="push"></div>
+
+    <footer class="footer">
+        <table>
+            <tr>
+                <td><small><b>Terms and Conditions</b></small></a></td>
+            </tr>
+            <tr>
+                <td><small><i>By using our servicces, you hereby agree to these terms. When you 
+                    access this website, you acknowledge that you <br>have read and agree to abide by 
+                    the terms described. If you do not agree to the terms, 
+                    you should exit this site. <br>Lao~X Cinema</i></small>                      
+                 </td>
+            </tr>
+        </table>
+     </footer>
+
+</div>
+</body>
+</html>
