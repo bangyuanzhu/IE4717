@@ -83,7 +83,7 @@
                     1 => "Freelance",
                     2 => "Oppenheimer",
                     3 => "Creation Of The Gods I: Kingdom Of Storms",
-                    4 => "Oppenheimer",
+                    4 => "Tejas",
                 );
                 $movie_name = $movie_names[$row['movie_id']];
     
@@ -141,7 +141,7 @@
             <title>Movie Booking Confirmation</title>
             </head>
             <body>
-            <p>Thank you for choosing Lao~ X Cinema!</p>
+            <p>Dear '.$user_email.',Thank you for choosing Lao~ X Theatre!</p>
             <table class="order_history" border="1" >
             <tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th></tr>
             '.$table.'

@@ -81,7 +81,7 @@
                     1 => "Freelance",
                     2 => "Oppenheimer",
                     3 => "Creation Of The Gods I: Kingdom Of Storms",
-                    4 => "Oppenheimer",
+                    4 => "Tejas",
                 );
                 $movie_name = $movie_names[$row['movie_id']];
     

@@ -36,6 +36,7 @@
                 </table>
             </nav>
         <?php
+            session_start();
             ini_set('display_errors', TRUE);
             error_reporting(-1);
             $servername ="localhost";
@@ -96,10 +97,11 @@
                         echo "Error: " . $upd . "<br>" . $conn->error;
                     }
                 }
-            
+            $user_email=$_SESSION['user_email'];
             $to = 'f32ee@localhost';
             $subject = 'Booking Confirmation';
-            $message = "Movie: $movie_name\n
+            $message = "Dear $user_email ,Thank you for choosing Lao~ X Theatre!<
+                        Movie: $movie_name\n
                         Cinema: $cinema_name\n
                         Date and Time: {$date_time} {$timing}\n
                         Selected Seats: " . implode(", ", $seat_code) . "\n

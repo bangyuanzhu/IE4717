@@ -57,64 +57,8 @@
             // // $timing = $_POST['timing'];
             // // $seat_code = $_POST['selected_seats'];
             $selectedPaymentMethod = $_POST['payment_method'];
-            // echo $seat_id;
-            // $sql = "SELECT * FROM ticketorders WHERE seat_id = '$seat_id'";
-
-            // $result = $conn->query($sql);
-
-            
-            // echo "<table class='order_history' border='1' >";
-            // echo "<tr><th>Cinema</th><th>Movie Name</th><th>Seat</th><th>Day of Week</th><th>Timing</th><th>Payment</th></tr>";
-
-            // while ($row = $result->fetch_assoc()) {
-            //     $movie_names = array(
-            //         1 => "Freelance",
-            //         2 => "Oppenheimer",
-            //         3 => "Creation Of The Gods I: Kingdom Of Storms",
-            //         4 => "Oppenheimer",
-            //     );
-            //     $movie_name = $movie_names[$row['movie_id']];
-    
-            //     $cinema_names = array(
-            //         1 => "Lao~X Theatre VivoCity",
-            //         2 => "Lao~X Theatre Jurong Point",
-            //         3 => "Lao~X Theatre Tiong Bahru",
-            //     );
-            //     $cinema_name = $cinema_names[$row['cinema_id']];
-    
-                
-            //     echo "<tr>";
-            //     echo "<td>" . $cinema_name . "</td>";
-            //     echo "<td>" . $movie_name . "</td>";
-            //     echo "<td>" . $row['seat'] . "</td>";
-            //     echo "<td>" . $row['dayofweek'] . "</td>";
-            //     echo "<td>" . $row['timing'] . "</td>";
-            //     echo "<td>" . $row['payment'] . "</td>";
-            //     echo "</tr>";
-            // }
-
-            // echo "</table>";
-            // $totalFee = count($seat_code) * 10; // Assuming $10 per seat
-
-            // $movie_names = array(
-            //     1 => "Freelance",
-            //     2 => "Oppenheimer",
-            //     3 => "Creation Of The Gods I: Kingdom Of Storms",
-            //     4 => "Oppenheimer",
-            // );
-            // $movie_name = $movie_names[$movie_id];
-
-            // $cinema_names = array(
-            //     1 => "Lao~X Theatre VivoCity",
-            //     2 => "Lao~X Theatre Jurong Point",
-            //     3 => "Lao~X Theatre Tiong Bahru",
-            // );
-            // $cinema_name = $cinema_names[$cinema_id];
 
 
-            
-            // echo "<p class='order_history'>Try:$seat</p>";
-            // foreach ($user_id as $user) {
             
             $upd1 = "UPDATE ticketorders SET payment='$selectedPaymentMethod' WHERE userid = '$user_id' AND payment = 'pending'";
             
@@ -134,29 +78,7 @@
             echo "<h2 class='order_history'>&nbsp Orders in cart for $user_email have been confirmed.</h2>";
             echo "<p class='order_history'>Click <a href='cart.php'>here </a> to see your orders.</p>";
             
-            // }
-            // $to = 'f32ee@localhost';
-            // $subject = 'Booking Confirmation';
-            // $message = "Movie: $movie_name\n
-            //             Cinema: $cinema_name\n
-            //             Date and Time: {$date_time} {$timing}\n
-            //             Selected Seats: " . implode(", ", $seat_code) . "\n
-            //             Total Fee: $$totalFee\n
-            //             Payment Method: $selectedPaymentMethod";
 
-            // $headers = 'From: f32ee@localhost' . "\r\n" .
-            // 'Reply-To: f32ee@localhost' . "\r\n" .
-            // 'X-Mailer: PHP/' . phpversion();
-            // mail($to, $subject, $message, $headers,'-ff32ee@localhost');
-
-            // echo "<h2 class='order_history'>Booking Confirmation:</h2>";
-            // echo "<p class='order_history'>Movie:$movie_name</p>";
-            // echo "<p class='order_history'>Cinema: $cinema_name</p>";
-            // echo "<p class='order_history'>Date and Time: $date_time $timing</p>";
-            // echo "<p class='order_history'>Selected Seats: " . implode(", ", $seat_code) . "</p>";
-            // echo "<p class='order_history'>Total Fee: $$totalFee</p>";
-            // echo "<p class='order_history'>Payment Method: $selectedPaymentMethod</p>";
-            // echo "<p class='order_history'>Your booking has been confirmed.</p>";
         ?>
 
 <div class="push"></div>

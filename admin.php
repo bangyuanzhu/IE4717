@@ -162,10 +162,8 @@
         }
         
         
-        // Step 3: 输入想要新加的日期
+        // Step 3: Select Date
         if (!empty($selected_cinema)&& !empty($selected_movie)) {
-            // $sql = "SELECT DISTINCT date_time FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema";
-            // $result = $db->query($sql);
         
             echo "<h2 class='order_history'>Select Date:</h2>";
             echo "<form action='' method='post'>";
@@ -181,12 +179,9 @@
             echo "<p class='order_history'>You selected Date: <i><b>$selected_date_time</b></i></p>";
         }
         
-        // Step 4: 输入想要新加的时间
+        // Step 4: Select Timing
         
         if (!empty($selected_cinema)&& !empty($selected_movie)&& !empty($selected_date_time)) {
-            // $sql = "SELECT DISTINCT timing FROM availability WHERE movie_id = $movie_id AND cinema_id = $selected_cinema AND date_time = '$selected_date_time'";
-            // $result = $db->query($sql);
-
             echo "<h2 class='order_history'>Select Time:</h2>";
             echo "<form action='' method='post'>";
             echo "<label class='order_history' for='timing'>Select Time:</label>";
@@ -207,10 +202,6 @@
 
         if (!empty($selected_cinema)&& !empty($selected_movie)&& !empty($selected_date_time) && !empty($selected_timing)) {
             
-            // echo "<p>You selected movie: $movie_id</p>";
-            // echo "<p>You selected cinema: $selected_cinema</p>";
-            // echo "<p>You selected date: $selected_date_time</p>";
-            // echo "<p>You selected time: $selected_timing</p>";
             echo "<form action='' method='post'>";
             echo "<input class='order_history' type='submit' value='Confirm to add this time slot'>";
             echo "</form>";

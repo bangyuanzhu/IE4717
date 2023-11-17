@@ -28,30 +28,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (mysqli_num_rows($result) > 0) {
         // User already exists - provide an error message or redirect
-        header("Location: failure.html");
-    } 
-    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email address: " . $user_email;
+        echo "Already registered email address: " . $user_email;
         header("Location: failure.html");
     }
-    if (strlen($user_password) < 9) {
-        echo "Password must be at least 9 length digits.";
-        header("Location: failure.html");
-    }
-    else {
-        // User doesn't exist, insert a new record
-        $insertQuery = "INSERT INTO USER (user_email, user_password) VALUES ('$user_email', '$user_password')";
-        if (mysqli_query($db, $insertQuery)) {
-            $message = "Successfully Registered";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            // Registration successful, redirect to login page
-            header("Location: login.html");
-        } else {
-            // Registration failed - provide an error message or redirect
-            header("Location: failure.html");
+    else{
+            if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+                echo "Invalid email address: " . $user_email;
+                header("Location: failure.html");
+            }else{
+            if (strlen($user_password) < 9) {
+                echo "Password must be at least 9 length digits.";
+                header("Location: failure.html");
+            }
+            else {
+                // User doesn't exist, insert a new record
+                $insertQuery = "INSERT INTO USER (user_email, user_password) VALUES ('$user_email', '$user_password')";
+                if (mysqli_query($db, $insertQuery)) {
+                    $message = "Successfully Registered";
+                    echo "<script type='text/javascript'>alert('$message');</script>";
+                    // Registration successful, redirect to login page
+                    header("Location: login.html");
+                } else {
+                    // Registration failed - provide an error message or redirect
+                    header("Location: failure.html");
+                }
+            }
         }
     }
-
     // Close the database connection
     mysqli_close($db);
 }
